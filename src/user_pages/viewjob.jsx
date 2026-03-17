@@ -99,6 +99,7 @@ const BADGE_STYLE = {
    xl  1024-1279 laptops
    2xl 1280+     desktops
 ───────────────────────────────────────────── */
+  //this is related to toptocler
 function useBreakpoint() {
   const [w, setW] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1280
@@ -296,10 +297,7 @@ function MobileDrawer({ open, onClose }) {
     </>
   );
 }
-<Navbar 
-  bp={{ isMobile: false, isTablet: false, isDesktop: true }}
-  onMenuOpen={() => console.log("menu open")}
-/>
+
 /* ─────────────────────────────────────────────
    SIDEBAR WIDGET WRAPPER
 ───────────────────────────────────────────── */
@@ -459,9 +457,9 @@ function Sidebar({ job }) {
    MAIN APP
 ───────────────────────────────────────────── */
 export default function ViewJob() {
+    //this is related to toptocler
   const bp = useBreakpoint();
   const { isMobile, isTablet, isDesktop, showSidebar, w } = bp;
-
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [saved, setSaved] = useState(false);
   const job = JOB;
@@ -545,7 +543,11 @@ export default function ViewJob() {
         gutter="16px"
         />
       {/* ────────────── NAVBAR ────────────── */}
-      <Navbar bp={bp} onMenuOpen={() => setDrawerOpen(true)} />
+      {/* <Navbar bp={bp} onMenuOpen={() => setDrawerOpen(true)} /> */}
+      <Navbar 
+  bp={{ isMobile: false, isTablet: false, isDesktop: true }}
+  onMenuOpen={() => console.log("menu open")}
+/>
       <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
 
       {/* ────────────── BREADCRUMB ────────────── */}
