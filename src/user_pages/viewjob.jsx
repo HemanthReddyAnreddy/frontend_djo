@@ -81,7 +81,7 @@ const BADGE_STYLE = {
   //this is related to toptocler
 function useBreakpoint() {
   const [w, setW] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1280
+    typeof window !== "undefined" ? window.innerWidth : "100%"
   );
   useEffect(() => {
     const h = () => setW(window.innerWidth);
@@ -488,7 +488,7 @@ const fetchJob = async () => {
   
 
   return (
-    <div style={{ fontFamily: "'DM Sans',sans-serif", background: C.light, color: C.text, minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',sans-serif", background: C.light, color: C.text, minHeight: "100vh" , width: "100%" , overflowX: "hidden"}}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -550,7 +550,10 @@ const fetchJob = async () => {
           .job-title { font-size: 24px !important; }
           .detail-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
+          html, body { width: 100% !important; margin: 0 !important; padding: 0 !important; overflow-x: hidden !important; }
+#root { width: 100% !important; overflow-x: hidden !important; }
       `}</style>
+      
 
       <AlertBar 
   isMobile={false}
@@ -572,7 +575,7 @@ const fetchJob = async () => {
       <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
 
       {/* ────────────── BREADCRUMB ────────────── */}
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: `12px ${gutter} 0` }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: `12px ${gutter} 0` }}>
         <div style={{ fontSize: 12.5, color: C.muted, display: "flex", alignItems: "center", gap: 5, flexWrap: "wrap" }}>
           <a href="#" style={{ color: C.primary }}>Home</a>
           <span>›</span>
@@ -584,7 +587,8 @@ const fetchJob = async () => {
 
       {/* ────────────── MAIN CONTENT ────────────── */}
       <div style={{
-        maxWidth: 1280, margin: "16px auto",
+        maxWidth: "100%",
+        margin: "16px auto",
         padding: `0 ${gutter} 56px`,
         display: "flex",
         flexDirection: showSidebar ? "row" : "column",
@@ -974,7 +978,7 @@ const fetchJob = async () => {
       </div>
 
       {/* ────────────── BOTTOM AD STRIP ────────────── */}
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: `0 ${gutter} 20px` }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: `0 ${gutter} 20px` }}>
         <div style={{
           background: "linear-gradient(90deg,#f0fff4,#e8f5e9)",
           border: "1.5px dashed #86efac", borderRadius: 10,
